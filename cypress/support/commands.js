@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
+  if (options && options.sensitive) {
+    options.log = false
+
+    Cypress.log({
+      $el: element,
+      name: 'type',
+      message: '*'.repeat(text.length),
+    })
+  }
+
+  return originalFn(element, text, options)
+})
