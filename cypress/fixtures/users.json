@@ -1,0 +1,40 @@
+{
+  "qauto1": {
+    "url": "https://guest:welcome2qauto@qauto.forstudy.space/",
+    "user": {
+      "name": "John",
+      "lastName": "Doe",
+      "email": "geresat765@paylaar.com",
+      "password": "Password123"
+    },
+    "car": {
+      "brand": "Audi",
+      "model": "A6",
+      "mileage": "120"
+    },
+    "expense": {
+      "mileage": "130",
+      "liters": "20",
+      "cost": "500"
+    }
+  },
+  "qauto2": {
+    "url": "https://guest:welcome2qauto@qauto2.forstudy.space/",
+    "user": {
+      "name": "Donny",
+      "lastName": "Gover",
+      "email": "kebobec175@izkat.com",
+      "password": "Password456"
+    },
+    "car": {
+      "brand": "BMW",
+      "model": "X5",
+      "mileage": "580"
+    },
+    "expense": {
+      "mileage": "610",
+      "liters": "50",
+      "cost": "4000"
+    }
+  }
+}
