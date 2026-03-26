@@ -55,3 +55,19 @@ Cypress.Commands.add('closeModalIfPresent', () => {
     }
   })
 })
+
+Cypress.Commands.add('createExpenseAPI', (expense) => {
+  return cy.get('@carId').then((carId) => {
+    return cy.request({
+      method: 'POST',
+      url: 'https://guest:welcome2qauto@qauto.forstudy.space/api/expenses',
+      body: {
+        carId,
+        mileage: Number(expense.mileage),
+        liters: Number(expense.liters),
+        totalCost: Number(expense.cost),
+        reportedAt: new Date().toISOString(),
+      },
+    });
+  });
+});
