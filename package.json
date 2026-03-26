@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "npx cypress open"
-},
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-    "cypress": "^13.6.2"
+    "cypress:open": "npx cypress open",
+    "test:qauto": "cypress run --config-file cypress.config.qauto.js",
+    "test:qauto2": "cypress run --config-file cypress.config.qauto2.js",
+    "open:qauto": "cypress open --config-file cypress.config.qauto.js",
+    "open:qauto2": "cypress open --config-file cypress.config.qauto2.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4"
   }
 }

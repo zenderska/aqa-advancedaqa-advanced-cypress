@@ -37,3 +37,21 @@ Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
 
   return originalFn(element, text, options)
 })
+
+Cypress.Commands.add('login', (email, password) => {
+  cy.contains('Sign In').click()
+  cy.get('#signinEmail').type(email)
+  cy.get('#signinPassword').type(password, { sensitive: true })
+  cy.contains('Login').click()
+  cy.url().should('include', '/panel')
+})
+
+Cypress.Commands.add('closeModalIfPresent', () => {
+  cy.get('body').then(($body) => {
+    if ($body.find('ngb-modal-window').length) {
+      cy.get('ngb-modal-window').within(() => {
+        cy.contains('button', 'Close').click({ force: true })
+      })
+    }
+  })
+})
