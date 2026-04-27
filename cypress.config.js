@@ -1,12 +1,8 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      return config;
-    }
+    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space/',
+    specPattern: 'cypress/e2e/**/*.cy.js',
   },
-  env: {
-    usersFile: "users.json"
-  }
-});
+})
