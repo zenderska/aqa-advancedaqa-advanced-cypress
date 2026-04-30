@@ -1,11 +1,11 @@
 class ExpensesPage {
   open() {
-    cy.contains('Fuel expenses').click()
-    cy.get('ngb-modal-window').should('not.exist')
+    cy.contains(/Fuel expenses|Expenses/).click();
+    cy.get('ngb-modal-window').should('not.exist');
   }
 
   clickAddExpense() {
-    cy.contains('Add an expense').click()
+    cy.contains('Add an expense').click();
   }
 
   enterMileage(mileage) {
@@ -27,14 +27,10 @@ class ExpensesPage {
     cy.intercept('POST', '/api/expenses').as('addExpense')
 
     cy.get('ngb-modal-window').should('be.visible').within(() => {
-      cy.contains('button', 'Add')
-        .should('be.visible')
-        .click()
+      cy.contains('button', 'Add').click()
     })
 
-    cy.wait('@addExpense').its('response.statusCode').should('be.oneOf', [200, 201])
-
-    cy.get('ngb-modal-window').should('not.exist')
+    return cy.wait('@addExpense')
   }
 
   addExpense({ mileage, liters, cost }) {

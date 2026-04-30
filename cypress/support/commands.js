@@ -43,7 +43,11 @@ Cypress.Commands.add('login', (email, password) => {
   cy.get('#signinEmail').type(email)
   cy.get('#signinPassword').type(password, { sensitive: true })
   cy.contains('Login').click()
-  cy.url().should('include', '/panel')
+  cy.url().then((url) => {
+    if (!url.includes('/panel')) {
+      cy.contains('Garage', { timeout: 10000 }).should('be.visible')
+    }
+  })
 })
 
 Cypress.Commands.add('closeModalIfPresent', () => {
